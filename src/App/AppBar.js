@@ -2,7 +2,9 @@
 
 import React from "react";
 import styled, { css } from "styled-components";
+import { AppContext } from "./AppProvider";
 
+//JS - Style
 const Logo = styled.div`
 	font-size: 1.5em;
 `;
@@ -18,7 +20,7 @@ const ControlButtonElem = styled.div`
 	${(props) =>
 		props.active &&
 		css`
-			text-shadow: 0px 0px 55px #01fa4c;
+			text-shadow: 0px 0px 55px #03ff03;
 		`}
 `;
 
@@ -26,12 +28,19 @@ function toProperCase(lower) {
 	return lower.charAt(0).toUpperCase() + lower.substr(1);
 }
 
-function ControlButton({ name, active }) {
+function ControlButton({ name }) {
 	return (
-		<ControlButtonElem active={active}>{toProperCase(name)}</ControlButtonElem>
+		<AppContext.Consumer>
+			{({ page, setPage }) => (
+				<ControlButtonElem active={page === name} onClick={() => setPage(name)}>
+					{toProperCase(name)}
+				</ControlButtonElem>
+			)}
+		</AppContext.Consumer>
 	);
 }
 
+//React - NavBar
 export default function () {
 	return (
 		<Bar>
