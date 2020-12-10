@@ -1,5 +1,8 @@
 import React from "react";
 
+//Use CryptoCompare
+const cc = require("cryptocompare");
+
 export const AppContext = React.createContext();
 
 export class AppProvider extends React.Component {
@@ -13,6 +16,17 @@ export class AppProvider extends React.Component {
 		};
 	}
 
+	componentDidMount = () => {
+		this.fetchCoins();
+	};
+
+	//Return the list of coins
+	fetchCoins = async () => {
+		let coinList = (await cc.coinList()).Data;
+		this.setState({ coinList });
+	};
+
+	// Change the states of the page
 	confirmFavorites = () => {
 		this.setState({
 			firstVisit: false,
@@ -26,6 +40,7 @@ export class AppProvider extends React.Component {
 		);
 	};
 
+	//Store the data
 	savedSettings() {
 		let cryptoDashData = JSON.parse(localStorage.getItem("cryptoDash"));
 		if (!cryptoDashData) {
