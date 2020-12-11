@@ -13,6 +13,7 @@ class Settings extends Component {
 		return (
 			<Page name='settings'>
 				<Welcome />
+				<CoinGrid topSection />
 				<ConfirmButton />
 				<CoinGrid />
 			</Page>
