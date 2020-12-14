@@ -8,6 +8,8 @@ import Page from "../Shared/page";
 
 import CoinGrid from "./coinGrid";
 
+import Search from "./search";
+
 class Settings extends Component {
 	render() {
 		return (
@@ -15,6 +17,7 @@ class Settings extends Component {
 				<Welcome />
 				<CoinGrid topSection />
 				<ConfirmButton />
+				<Search />
 				<CoinGrid />
 			</Page>
 		);
