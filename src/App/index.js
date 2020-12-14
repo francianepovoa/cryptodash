@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import AppBar from "./AppBar";
 import Settings from "../Settings/index";
+import Dashboard from "../Dashboard/index";
 import { AppProvider } from "./AppProvider";
 
 import Content from "../Shared/content";
@@ -17,6 +18,7 @@ class App extends Component {
 					<AppBar />
 					<Content>
 						<Settings />
+						<Dashboard />
 					</Content>
 				</AppProvider>
 			</AppLayout>
