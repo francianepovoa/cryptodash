@@ -28,6 +28,7 @@ export class AppProvider extends React.Component {
 
 	componentDidMount = () => {
 		this.fetchCoins();
+		this.fetchPrices();
 	};
 
 	//Add New Coin in the top page
@@ -54,12 +55,40 @@ export class AppProvider extends React.Component {
 		this.setState({ coinList });
 	};
 
+	//Return the prices of the coins
+	fetchPrices = async () => {
+		if (this.state.firstVisit) return;
+		let prices = await this.prices();
+		console.log(prices);
+		// We must filter the empty price objects (not in the lecture)
+		prices = prices.filter((price) => Object.keys(price).length);
+		this.setState({ prices });
+	};
+
+	prices = async () => {
+		let returnData = [];
+		for (let i = 0; i < this.state.favorites.length; i++) {
+			try {
+				let priceData = await cc.priceFull(this.state.favorites[i], "USD");
+				returnData.push(priceData);
+			} catch (e) {
+				console.warn("Fetch price error:", e);
+			}
+		}
+		return returnData;
+	};
+
 	// Change the states of the page
 	confirmFavorites = () => {
-		this.setState({
-			firstVisit: false,
-			page: "dashboard",
-		});
+		this.setState(
+			{
+				firstVisit: false,
+				page: "dashboard",
+			},
+			() => {
+				this.fetchPrices();
+			}
+		);
 		localStorage.setItem(
 			"cryptoDash",
 			JSON.stringify({
