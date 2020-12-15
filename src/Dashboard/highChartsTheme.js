@@ -1,6 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import { lightTheme } from "../Shared/styles";
+//LightTheme
+//import { lightTheme } from "../Shared/styles";
+
 export default {
 	colors: [
 		"#61d936",
@@ -13,11 +15,13 @@ export default {
 		"#1B2839",
 	],
 	chart: {
-		backgroundColor: lightTheme ? "white" : "#061a44",
+		backgroundColor: "#061a44",
+		//backgroundColor: lightTheme ? "white" : "#061a44",
 		borderColor: "#000000",
 		borderWidth: 0,
 		className: "dark-container",
-		plotBackgroundColor: lightTheme ? "white" : "#061a44",
+		plotBackgroundColor: "#061a44",
+		// plotBackgroundColor: lightTheme ? "white" : "#061a44",
 		plotBorderWidth: 0,
 	},
 	title: {
@@ -107,7 +111,8 @@ export default {
 		},
 	},
 	legend: {
-		backgroundColor: lightTheme ? "white" : "#061a44",
+		backgroundColor: "#061a44",
+		//backgroundColor: lightTheme ? "white" : "#061a44",
 		itemStyle: {
 			font: "9pt Trebuchet MS, Verdana, sans-serif",
 			color: "#A0A0A0",
