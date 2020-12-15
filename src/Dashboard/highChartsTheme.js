@@ -105,7 +105,7 @@ export default {
 		},
 	},
 	legend: {
-		backgroundColor: "rgba(0, 0, 0, 0.5)",
+		backgroundColor: "#061a44",
 		itemStyle: {
 			font: "9pt Trebuchet MS, Verdana, sans-serif",
 			color: "#A0A0A0",
