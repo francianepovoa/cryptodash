@@ -1,7 +1,8 @@
 import React from "react";
+import { AppContext } from "../App/AppProvider";
 import styled, { css } from "styled-components";
 import { SelectableTile } from "../Shared/tile";
-import { fontSize3, fontSizeBig } from "../Shared/styles";
+import { fontSize3, fontSizeBig, greenBoxShadow } from "../Shared/styles";
 import { CoinHeaderGridStyled } from "../Settings/coinHeaderGrid";
 
 const JustifyRight = styled.div`
@@ -40,6 +41,13 @@ const PriceTileStyle = styled(SelectableTile)`
 			grid-template-columns: repeat(3, 1fr);
 			justify-items: right;
 		`}
+
+	${(props) =>
+		props.currentFavorite &&
+		css`
+			${greenBoxShadow};
+			pointer-events: none;
+		`}
 `;
 
 function ChangePercent({ data }) {
@@ -52,9 +60,11 @@ function ChangePercent({ data }) {
 	);
 }
 
-function PriceTileData({ sym, data }) {
+function PriceTileData({ sym, data, currentFavorite, setCurrentFavorite }) {
 	return (
-		<PriceTileStyle>
+		<PriceTileStyle
+			onClick={setCurrentFavorite}
+			currentFavorite={currentFavorite}>
 			<CoinHeaderGridStyled>
 				<div> {sym} </div>
 				<ChangePercent data={data} />
@@ -64,9 +74,12 @@ function PriceTileData({ sym, data }) {
 	);
 }
 
-function PriceTileCompact({ sym, data }) {
+function PriceTileCompact({ sym, data, currentFavorite, setCurrentFavorite }) {
 	return (
-		<PriceTileStyle compact>
+		<PriceTileStyle
+			compact
+			onClick={setCurrentFavorite}
+			currentFavorite={currentFavorite}>
 			<JustifyLeft> {sym} </JustifyLeft>
 			<ChangePercent data={data} />
 
@@ -79,7 +92,17 @@ function PriceTile({ price, index }) {
 	let sym = Object.keys(price)[0];
 	let data = price[sym]["USD"];
 	let TileClass = index < 5 ? PriceTileData : PriceTileCompact;
-	return <TileClass sym={sym} data={data}></TileClass>;
+	return (
+		<AppContext.Consumer>
+			{({ currentFavorite, setCurrentFavorite }) => (
+				<TileClass
+					sym={sym}
+					data={data}
+					currentFavorite={currentFavorite === sym}
+					setCurrentFavorite={() => setCurrentFavorite(sym)}></TileClass>
+			)}
+		</AppContext.Consumer>
+	);
 }
 
 export default PriceTile;
