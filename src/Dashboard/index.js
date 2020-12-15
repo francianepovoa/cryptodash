@@ -7,6 +7,8 @@ import PriceGrid from "./priceGrid";
 
 import Spotlight from "./coinSpotlight";
 
+import PriceChart from "./priceChart";
+
 const ChartGrid = styled.div`
 	display: grid;
 	margin-top: 20px;
@@ -21,7 +23,7 @@ class Settings extends Component {
 				<PriceGrid />
 				<ChartGrid>
 					<Spotlight />
-					<div>Chart goes here </div>
+					<PriceChart />
 				</ChartGrid>
 			</Page>
 		);
