@@ -105,3 +105,9 @@ $ git push origin your-feature
 ```
 
 After your pull request is merged, you can delete your branch
+
+## 📝 Frontend License
+
+This project is under the MIT license. See the [LICENSE](https://github.com/francianepovoa/cryptodash/blob/master/LICENSE) for more information.
+
+Made with ♥ by Franciane Póvoa :wave: [Get in touch!](https://github.com/francianepovoa) 
