@@ -15,8 +15,9 @@ const SearchGrid = styled.div`
 const SearchInput = styled.input`
 	${backgroundColor2};
 	${fontSize2};
+
 	border: 1px solid;
-	height: 25px;
+	height: 30px;
 	color: #1163c9;
 	place-self: center left;
 `;
@@ -54,7 +55,7 @@ function Search() {
 		<AppContext.Consumer>
 			{({ setFilteredCoins, coinList }) => (
 				<SearchGrid>
-					<h2>Search all coins</h2>
+					<h2>Search for coins:</h2>
 					<SearchInput
 						onKeyUp={(e) => filterCoins(e, setFilteredCoins, coinList)}
 					/>

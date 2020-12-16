@@ -7,10 +7,12 @@ function Welcome({ firstVisit }) {
 			{({ firstVisit }) =>
 				firstVisit ? (
 					<div>
-						Welcome to CryptoDash, please select your favorite coins to begin.{" "}
-						{""}
+						Welcome to CryptoDash, please select up to 10 favorite coins to
+						begin. {""}
 					</div>
-				) : null
+				) : (
+					<div>Your favorite coins {""}</div>
+				)
 			}
 		</AppContext.Consumer>
 	);
