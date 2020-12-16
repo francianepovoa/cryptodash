@@ -1,4 +1,4 @@
-# CryptoDash is a application built on React.js
+# CryptoDash is an application built on React.js
 
 <p align="center">
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/francianepovoa/cryptodash">
@@ -15,7 +15,7 @@
 
 ## 👨🏻‍💻 About the project
 
-This is an Cryptocurrency Dashboard project using React.js, Context API, styled-components & CSS Grid. 
+This is a Cryptocurrency Dashboard project using React.js, Context API, styled-components & CSS Grid. 
 
 ##### Settings Page with Intro greeting
  * Greeting the user on first visit, asking them to choose their favorites
@@ -24,12 +24,11 @@ This is an Cryptocurrency Dashboard project using React.js, Context API, styled-
  * Adding/Removing coins on the list of favorites
 
 ##### Dashboard
-* Data initializes from remembered favorites, or forwards to Settings page
-* Displays 5 major Cards for first 5 favorites and compact Cards for next 5
-* Renders a line chart for the 10 historical points on current favorite symbol
-* Select coins changes and re-fetch data, remembers current favorite
-* Select to render historical points on Date: Days Weeks Months
-* Display name and image of coin next to chart
+* Data initializes from remembered favorites, or forwards to the Settings page
+* Renders a line chart for the 10 historical points on the current favorite symbol
+* Select coins changes and re-fetch data, remember the current favorite
+* Select to render historical data points on Date: Days Weeks Months
+* Display name and image of coin next to the chart
 
 ## 🚀 Frontend Technologies
 <h1 align="center">
@@ -73,8 +72,8 @@ $ yarn start
 
 ## Set your CryptoCompare API Key
 
-Remember to replace the `cc.setApiKey` variable in your `AppProvider.jsx`with your own Key from the CryptoCompare! 
-You can create a free API key in the CryptoCompare website. It's also possible to use the application without an API key but there are limits related to speed and fetching data. 
+Remember to replace the `cc.setApiKey` variable in your `AppProvider.jsx`with your own API key from the CryptoCompare! 
+You can create a free API key in the CryptoCompare website. It is also possible to use the application without an API key but there are limits related to speed and fetching data. 
 
 ```bash
 # Use without an API key
